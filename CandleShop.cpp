@@ -1,49 +1,6 @@
 #include <iostream>
+#include "Candle.hpp"
 using namespace std;
-
-class Candle
-{
-private:
-  string name;
-  double price;
-  int burnTime;
-  int amount;
-
-public:
-  Candle(string name, double price, int burnTime, int amount)
-  {
-    this->name = name;
-    this->price = price;
-    this->burnTime = burnTime;
-    this->amount = amount;
-  }
-
-  string getName()
-  {
-    return this->name;
-  }
-
-  double getPrice()
-  {
-    return this->price;
-  }
-
-  int getBurnTime()
-  {
-    return this->burnTime;
-  }
-
-  int getAmount()
-  {
-    return this->amount;
-  }
-
-  // Setters
-  void setAmount(int amount)
-  {
-    this->amount = amount;
-  }
-};
 
 int main()
 {
@@ -56,23 +13,27 @@ int main()
   Candle candleTwo("Fragrant Floral's", 3.75, 7, 0);
   Candle candleThree("Spicy N' Dicey", 5.99, 12, 0);
 
-  Candle candles[3] = {candleOne, candleTwo, candleThree};
+  vector<Candle> candles = {candleOne, candleTwo, candleThree};
 
-  // cout << "Enter 0 to continue\n";
-  // cin >> start;
+  cout << "Enter 0 to continue\n";
+  cin >> start;
+  if (start != 0)
+  {
+    return 1;
+  }
 
   for (int i = 0; i < 3; i++)
   {
     int input;
-    // cout << "\nHow many " << candles[i].getName() << " candles would you like? Enter a number amount.\n";
-    // cin >> input;
-    candles[i].setAmount(i);
-    cout << "candles" << candles[i].getAmount();
+    cout << "\nHow many " << candles[i].getName() << " candles would you like? Enter a number amount.\n";
+    cin >> input;
+    cout << input << "\n";
+    candles[i].setAmount(input);
   }
 
-  cout << candleOne.getAmount();
-  cout << candleTwo.getAmount();
-  cout << candleThree.getAmount();
+  cout << candleOne.getAmount() << "\n";
+  cout << candleTwo.getAmount() << "\n";
+  cout << candleThree.getAmount() << "\n";
 
   //   for (int i = 0; i < candles.length; i++) {
   //     System.out.println(String.format(
