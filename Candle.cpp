@@ -1,13 +1,7 @@
 #include "Candle.hpp"
 
 // Constructor
-Candle::Candle(string new_name, double new_price, int new_burnTime, int new_amount)
-{
-  name = new_name;
-  price = new_price;
-  burnTime = new_burnTime;
-  amount = new_amount;
-}
+Candle::Candle(string new_name, double new_price, int new_burnTime, int new_amount) : name(new_name), price(new_price), burnTime(new_burnTime), amount(new_amount){};
 
 Candle::~Candle()
 {
