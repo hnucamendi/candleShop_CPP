@@ -9,11 +9,7 @@ int main()
   int grandCostPerBurnTime = 0;
   int start;
 
-  Candle candleOne("Luscious Lavender", 2.50, 5, 0);
-  Candle candleTwo("Fragrant Floral's", 3.75, 7, 0);
-  Candle candleThree("Spicy N' Dicey", 5.99, 12, 0);
-
-  vector<Candle> candles = {candleOne, candleTwo, candleThree};
+  Candle candles[3] = {Candle("Luscious Lavender", 2.50, 5, 0), Candle("Fragrant Floral's", 3.75, 7, 0), Candle("Spicy N' Dicey", 5.99, 12, 0)};
 
   cout << "Enter 0 to continue\n";
   cin >> start;
@@ -27,25 +23,29 @@ int main()
     int input;
     cout << "\nHow many " << candles[i].getName() << " candles would you like? Enter a number amount.\n";
     cin >> input;
-    cout << input << "\n";
     candles[i].setAmount(input);
+
+    grandTotal = candles[i].getTotalPrice();
+    grandBurnTime = candles[i].getTotalBurnTime();
+    grandCostPerBurnTime = candles[i].getTotalCostPerBurnTime();
   }
 
-  cout << candleOne.getAmount() << "\n";
-  cout << candleTwo.getAmount() << "\n";
-  cout << candleThree.getAmount() << "\n";
+  cout << "\nReceipt\n";
+  for (int i = 0; i < 3; i++)
+  {
+    cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    cout << candles[i].getName() << "\n";
+    cout << "Amount: " << candles[i].getAmount() << "\n";
+    cout << "Burn time: " << candles[i].getBurnTime() << " hours"
+         << "\n";
+    cout << "Dollar per Burn Time: " << candles[i].getTotalCostPerBurnTime() << "\n";
+    cout << "Price: " << candles[i].getTotalPrice() << "\n";
+    cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+  }
 
-  //   for (int i = 0; i < candles.length; i++) {
-  //     System.out.println(String.format(
-  //             "How many of the %s candles would you like? Enter a number amount.", candles[i].getName()));
-  //     candles[i].setAmount(keyboard.nextInt());
-
-  //     candles[i].totalPrice();
-
-  //     grandTotal += candles[i].totalPrice();
-  //     grandTotalBurnTime += candles[i].totalBurnTime();
-  //     grandCostPerBurnTime += candles[i].costPerBurnTime();
-  // }
+  cout << "Total Burn Time: " << grandBurnTime << "\n";
+  cout << "Total Cost per Burn Time: " << grandCostPerBurnTime << "\n";
+  cout << "Total Price: " << grandTotal << "\n";
 
   return 0;
 }

@@ -8,6 +8,9 @@ private:
   double price;
   int burnTime;
   int amount;
+  double totalPrice;
+  int totalBurnTime;
+  double totalCostPerBurnTime;
 
 public:
   Candle(string new_name, double new_price, int new_burnTime, int new_amount);
@@ -15,13 +18,16 @@ public:
 
   // Getters
   string getName();
-
   double getPrice();
-
   int getBurnTime();
-
   int getAmount();
+  // double getTotalPrice();
+  // int getTotalBurnTime();
+  // double getTotalCostPerBurnTime();
 
   // Setters
-  void setAmount(int &amount);
+  void setAmount(int amount);
+  double getTotalPrice();
+  int getTotalBurnTime();
+  double getTotalCostPerBurnTime();
 };

@@ -30,7 +30,27 @@ int Candle::getAmount()
   return amount;
 }
 
-void Candle::setAmount(int &new_amount)
+double Candle::getTotalPrice()
+{
+  totalPrice = (double)amount * price;
+  return totalPrice;
+}
+
+int Candle::getTotalBurnTime()
+{
+  totalBurnTime = amount * burnTime;
+  return totalBurnTime;
+}
+
+double Candle::getTotalCostPerBurnTime()
+{
+  totalCostPerBurnTime = (double)getTotalPrice() / burnTime;
+  return totalCostPerBurnTime;
+}
+
+// Setters
+
+void Candle::setAmount(int new_amount)
 {
   amount = new_amount;
 }
